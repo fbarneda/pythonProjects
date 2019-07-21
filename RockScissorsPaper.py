@@ -62,16 +62,17 @@ def player_plays():
     global playing
 
     while True:
-        try:
+
             player_plays = str(input("\n" + player.name + ", please enter [R]ock or [S]cissors or [P]aper.\n"
             + "To exit press [Q]uit. \n").upper())
+
             if player_plays == 'Q':
                 playing = False
                 return playing
             elif player_plays == 'R' or player_plays == 'S'or player_plays == 'P':
                 break
-        except:
-            print("Please enter one of the options mentioned.")
+            else:
+                print("\nPlease enter one of the options mentioned!")
 
     return hand.play_options[player_plays]
 
@@ -101,7 +102,7 @@ def print_statistics():
     print(f"Games WON: {player.total_wins} games")
     print(f"Games LOST: {player.total_lose} games")
     print(f"Games TIED: {player.total_tie} games")
-    print(f"You won {player.percent_wins()} of the games")
+    print(f"You won {player.percent_wins()} of the games!")
     print("-----------------------------------------------\n")
 
 
@@ -121,4 +122,4 @@ while playing:
     play(hand.random_play(),player_plays())
 
 print_statistics()
-print("\nThanks for playing! Bye now.")
+print("Thanks for playing! Bye now.")
