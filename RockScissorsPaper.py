@@ -42,7 +42,7 @@ class Player():
             return "0 %"
         else:
             res = 100 * float(self.total_wins)/float(self.total_games_played)
-            return str(round(res,3)) + " %"
+            return str(round(res,2)) + " %"
 
 
 class HandPlayOptions():
