@@ -59,7 +59,3 @@ print("list2 = [3,4,2,5,1]\n")
 list2 = [3,4,2,5,1]
 list2.sort()
 print("The sorted list is: " + str(list2))
-
-
-
-
