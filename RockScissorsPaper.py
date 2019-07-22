@@ -42,7 +42,7 @@ class Player():
             return "0 %"
         else:
             res = 100 * float(self.total_wins)/float(self.total_games_played)
-            return str(round(res,2)) + " %"
+            return str(round(res,3)) + " %"
 
 
 class HandPlayOptions():
@@ -108,8 +108,7 @@ def print_statistics():
 
 # MAIN PROGRAM STARTS HERE:
 
-welcome = " WELCOME! To The Rock, Scissors, Paper Game! "
-print('\n' + welcome.center(70,'*') + '\n')
+print("\nWELCOME TO THE Rock, Scissors, Paper game!\n")
 
 player_name = input("Please enter your name here: \n")
 
