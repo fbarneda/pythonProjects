@@ -108,7 +108,8 @@ def print_statistics():
 
 # MAIN PROGRAM STARTS HERE:
 
-print("\nWELCOME TO THE Rock, Scissors, Paper game!\n")
+welcome = " WELCOME! To The Rock, Scissors, Paper Game! "
+print('\n' + welcome.center(70,'*') + '\n')
 
 player_name = input("Please enter your name here: \n")
 
