@@ -39,7 +39,7 @@ print("The elements that are not inside are: " + str(set1.difference(set2)))
 
 print("\n// Problem 6: Find all elements that are in either set:\n")
 
-print("The elements that are in either set are: " + str(set1.intersection(set2)))
+print("The elements that are in either set are: " + str(set1.union(set2)))
 
 
 print("\n// Problem 7: Create this dictionary: {0: 0, 1: 1, 2: 8, 3: 27, 4: 64} using a dictionary comprehension.\n")
@@ -59,7 +59,3 @@ print("list2 = [3,4,2,5,1]\n")
 list2 = [3,4,2,5,1]
 list2.sort()
 print("The sorted list is: " + str(list2))
-
-
-
-
