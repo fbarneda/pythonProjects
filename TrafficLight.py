@@ -2,7 +2,7 @@
 Traffic Light
 """
 
-import time, random
+import time
 
 
 class TrafficLight():
