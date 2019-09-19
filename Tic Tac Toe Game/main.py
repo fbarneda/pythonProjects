@@ -1,24 +1,43 @@
 import functions as game
-print("Welcome to the Tic Tac Toe Game!")
+print("\nWelcome to the Tic Tac Toe Game!\n")
 
 while True:
 
-    board = ['#',' ',' ',' ',' ',' ',' ',' ',' ',' ']
+    board = ['*',' ',' ',' ',' ',' ',' ',' ',' ',' ']
 
-    player = game.player_input()
+    marker = game.player_input()
 
-    #game.choose_first()
+    if marker == "X":
+        player1 = "X"
+        player2 = "O"
+    else:
+        player1 = "O"
+        player2 = "X"
 
     while True:
 
-        game.display_board(board)
+        if game.full_board_check(board) == False:
 
-        position = game.player_choice(board)
+            game.display_board(board)
 
-        if game.space_check(board, position):
-            game.place_marker(board,player,position)
+            position = game.player_choice(board)
 
+            if game.space_check(board, position):
+                game.place_marker(board,marker,position)
 
+            if marker == "X":
+                marker = "O"
 
-    # position = int(input("Please enter a number"))
-    # print("\n"*100)
+        else:
+            print("Full")
+            break
+
+        # position = game.player_choice(board)
+        # if position == '#':
+        #     print("Already in use, choose another one.")
+        # else:
+        #     game.place_marker(board, player, position)
+        #     game.display_board(board)
+
+# position = int(input("Please enter a number"))
+# print("\n"*100)

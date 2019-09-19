@@ -10,6 +10,7 @@ def display_board(board):
     print("     |     |     \n", end='')
     print(" " + board[1] + "   |  " + board[2] + "  |   " + board[3] + "  \n", end='')
     print("     |     |     \n", end='')
+    print("\n", end='')
 
 
 def player_input():
@@ -25,10 +26,10 @@ def place_marker(board, marker, position):
 
 def win_check(board, mark):
     return (board[1] == mark and board[2] == mark and board[3] == mark) or (
-                board[4] == mark and board[5] == mark and board[6] == mark) or (
-                       board[7] == mark and board[8] == mark and board[9] == mark) or (
-                       board[1] == mark and board[5] == mark and board[9] == mark) or (
-                       board[3] == mark and board[5] == mark and board[7] == mark)
+            board[4] == mark and board[5] == mark and board[6] == mark) or (
+                   board[7] == mark and board[8] == mark and board[9] == mark) or (
+                   board[1] == mark and board[5] == mark and board[9] == mark) or (
+                   board[3] == mark and board[5] == mark and board[7] == mark)
 
 
 def choose_first():
@@ -38,11 +39,17 @@ def choose_first():
         res = "Player 1"
     else:
         res = "Player 2"
-    print("\n"+res+" goes first")
+    print("\n" + res + " goes first.")
+    return res
 
 
 def space_check(board, position):
-    return board[position] == ' '
+    print()
+    a = board[position]
+    print(type(a))
+    print(type(board))
+    print(type(position))
+    return a == ' '
 
 
 def full_board_check(board):
@@ -53,10 +60,12 @@ def full_board_check(board):
 
 
 def player_choice(board):
-    position = int(input("Please enter a number"))
+    position = int(input("Please enter a number:\n"))
 
     if space_check(board, position):
         return position
+    else:
+        return board[0]
 
 
 def replay():
