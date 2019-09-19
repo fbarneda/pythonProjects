@@ -43,13 +43,11 @@ def choose_first():
     return res
 
 
-def space_check(board, position):
-    print()
-    a = board[position]
-    print(type(a))
-    print(type(board))
-    print(type(position))
-    return a == ' '
+def space_check(board, pos):
+    if str(board[pos]) == " ":
+        return True
+    else:
+        return False
 
 
 def full_board_check(board):
@@ -59,14 +57,18 @@ def full_board_check(board):
         return True
 
 
-def player_choice(board):
-    position = int(input("Please enter a number:\n"))
+def player_select_move():
+    pos = int(input("Please enter a number:\n"))
+    return pos
 
-    if space_check(board, position):
-        return position
-    else:
-        return board[0]
-
+    # if space_check(board, position):
+    #     return position
+    # 
+    # else:
+    #     print(position)
+    #     print("Already in use.\n")
+    #     str(player_select_move(board))
+        
 
 def replay():
     playagain = ''
