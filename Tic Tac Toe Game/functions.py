@@ -16,7 +16,7 @@ def display_board(board):
 def player_input():
     player = ''
     while not (player == "X" or player == "O"):
-        player = input("Player 1: Please pick a marker 'X' or 'O':\n").upper()
+        player = input("Please pick your marker 'X' or 'O':\n").upper()
     return player
 
 
@@ -29,7 +29,10 @@ def win_check(board, mark):
             board[4] == mark and board[5] == mark and board[6] == mark) or (
                    board[7] == mark and board[8] == mark and board[9] == mark) or (
                    board[1] == mark and board[5] == mark and board[9] == mark) or (
-                   board[3] == mark and board[5] == mark and board[7] == mark)
+                   board[3] == mark and board[5] == mark and board[7] == mark) or (
+                   board[1] == mark and board[4] == mark and board[7] == mark) or (
+                   board[2] == mark and board[5] == mark and board[8] == mark) or (
+                   board[3] == mark and board[6] == mark and board[9] == mark)
 
 
 def choose_first():
@@ -39,8 +42,8 @@ def choose_first():
         res = "Player 1"
     else:
         res = "Player 2"
-    print("\n" + res + " goes first.")
-    return res
+
+    print("\n" + res + " goes first!\n")
 
 
 def space_check(board, pos):
@@ -58,25 +61,17 @@ def full_board_check(board):
 
 
 def player_select_move():
-    pos = int(input("Please enter a number:\n"))
-    return pos
+    while True:
+        pos = input("Please enter a number: [1-9]\n")
+        if pos in ["1", "2", "3", "4", "5", "6", "7", "8", "9"]:
+            return int(pos)
 
-    # if space_check(board, position):
-    #     return position
-    # 
-    # else:
-    #     print(position)
-    #     print("Already in use.\n")
-    #     str(player_select_move(board))
-        
 
 def replay():
-    playagain = ''
 
-    while not (playagain == "yes" or playagain == "no"):
-        playagain = input("Please pick a marker 'X' or 'O':\n").upper()
-
-    if playagain[0] == 'N':
-        return False
-    else:
-        return True
+    while True:
+        res = input("\nWanna play again? [Y/N]\n").upper()
+        if res[0] == 'N':
+            return False
+        elif res[0] == 'Y':
+            return True
