@@ -244,7 +244,7 @@ if __name__ == "__main__":
             hit_or_stand(deck, player_hand)
             # Show cards (but keep one dealer card hidden)
             show_some(player_hand, dealer_hand)
-            # If player's hand exceeds 21, run player_busts() and break out of loop
+            # If player's hand exceeds 21, break out of loop
             if player_hand.value > 21:
                 break
 
@@ -254,10 +254,6 @@ if __name__ == "__main__":
 
         # Show all cards
         show_all(player_hand, dealer_hand)
-
-        # print("Let's debug chips...")
-        # print(chips.total)
-        # print(chips.bet)
 
         # Run different winning scenarios
         if player_hand.value > 21:
