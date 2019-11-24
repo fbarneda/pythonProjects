@@ -52,7 +52,7 @@ def add_single_movie_to_db():
     data = list()
 
     for key in movie_collection_keys:
-        msg = "Enter {}: ".format(key)
+        msg = "Enter movie {}: ".format(key)
         d = input(msg)
         data.append(d)
 
@@ -69,18 +69,62 @@ def view_all_movie_db():
 
 
 def print_movie_info(movie):
-    print("* {} directed by {} in {}\nLocated in {}, shelf {}.\n".format(movie["name"], movie["director"], movie["year"],
-                                                                     movie["location"], movie["shelf"]))
+    print("* {} directed by {} in {}\nLocated in {}, shelf {}.\n".format(
+        movie["name"],
+        movie["director"],
+        movie["year"],
+        movie["location"],
+        movie["shelf"]
+    ))
+
+
+def read_local_movie_db():
+    try:
+        with open("movie_db.txt", "r") as file:
+            data = eval(file.read())
+        return data
+
+    except:
+        return None
+
+
+def write_all_changes(data):
+    with open("movie_db.txt", "w") as file:
+        file.writelines(str(data))
 
 
 # Ask the customer to enter one of the options offered
 print("Welcome to my Movie Management System!")
 opt_selected = bool()
 
+trying_to_read = read_local_movie_db()
+if trying_to_read is not None:
+    movie_collection_db = trying_to_read
+
+print(type(trying_to_read))
+print(trying_to_read)
+print()
+print(type(movie_collection_db))
+print(movie_collection_db)
+
+
+# if local_movie_db is not None:
+#     for line in local_movie_db:
+#         movie_collection_db.upd
+
+# [
+# {'name': '1', 'director': '1', 'year': '1', 'location': '1', 'shelf': '1'},
+# {'name': '1', 'director': '1', 'year': '1', 'location': '1', 'shelf': '1'}
+# ]
+
+# example: [{'name': '1', 'director': '1', 'year': '1', 'location': '1', 'shelf': '1'}, {'name': '2', 'director': '2', 'year': '2', 'location': '2', 'shelf': '2'}, {'name': '3', 'director': '3', 'year': '3', 'location': '3', 'shelf': '3'}, {'name': '4', 'director': '4', 'year': '4', 'location': '4', 'shelf': '4'}]
+
 while opt_selected != "q":
 
-    print(options_msg)
-    opt_selected = input("Select an option to continue\n" + "-"*30 + "\n").lower()
+    print(movie_collection_db)
+
+    print("Movie collection:" + options_msg)
+    opt_selected = input("Select an option to continue\n" + "-" * 30 + "\n").lower()
 
     # Add a Movie (a)
     if opt_selected == "a":
@@ -96,7 +140,7 @@ while opt_selected != "q":
         pass
     # Write all Changes (w)
     elif opt_selected == "w":
-        pass
+        write_all_changes(data=movie_collection_db)
     # Quit (q)
     elif opt_selected == "q":
         break
