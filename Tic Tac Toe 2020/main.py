@@ -91,7 +91,7 @@ print("\nWelcome to the Tic Toc Game 2020")
 
 while True:
 
-    board_values = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+    board_values = [" " for _ in range(0,9)]
     current_marker = select_marker()
 
     while True:
